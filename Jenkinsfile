@@ -85,7 +85,7 @@ pipeline
         stage('DockerImage: Build'){
             steps{
                 script{
-                    dockerImageBuild(${params.reponame},${params.imagename}, ${params.imagetag})
+                    dockerImageBuild("${params.reponame}","${params.imagename}", "${params.imagetag}")
                 }
             }
             
