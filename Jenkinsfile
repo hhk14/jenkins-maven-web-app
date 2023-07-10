@@ -2,6 +2,9 @@
 pipeline
 {
     agent any
+    tools{
+        maven 'maven3'
+    }
     parameters
     {
         string(name: 'branch', defaultValue: 'main', description: 'Specify git branch')
