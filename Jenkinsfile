@@ -72,5 +72,13 @@ pipeline
             }
         }
 
+        stage('MVN: Build'){
+            steps{
+                script{
+                    mvnBuild()
+                }
+            }
+        }
+
     }
 }
