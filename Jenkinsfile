@@ -62,5 +62,15 @@ pipeline
             }
         }
 
+        stage('Quality Gate Status: SonarQube'){
+            steps{
+                script{
+                    def sonartoken='sonar-jenkins'
+                    def sonarqualitygatetoken='sonar-quality-gate-id'
+                    sonarQualityGateCheck(sonartoken,sonarqualitygatetoken)
+                }
+            }
+        }
+
     }
 }
