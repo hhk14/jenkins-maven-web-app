@@ -17,8 +17,8 @@ pipeline
                 script
                 {
                     gitCheckout(
-                        branch: ${params.branch},
-                        url: ${params.url}
+                        branch: "${params.branch}",
+                        url: "${params.url}"
                     )
                 }
                 
