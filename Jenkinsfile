@@ -11,10 +11,17 @@ pipeline
     {
         stage('Git :Checkout')
         {
-            gitCheckout(
-                branch: ${params.branch},
-                url: ${params.url}
-                )
+            steps
+            {
+                script
+                {
+                    gitCheckout(
+                        branch: ${params.branch},
+                        url: ${params.url}
+                    )
+                }
+                
+            }   
         }
     }
 }
