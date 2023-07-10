@@ -52,5 +52,14 @@ pipeline
                 
         }
 
+        stage(StaticCodeAnanalysis: 'SonarQube'){
+            steps{
+                script{
+                    def sonartoken=credentials('sonar-jenkins')
+                    staticCodeCheck(sonartoken)
+                }
+            }
+        }
+
     }
 }
