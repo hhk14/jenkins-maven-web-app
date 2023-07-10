@@ -9,6 +9,9 @@ pipeline
     {
         string(name: 'branch', defaultValue: 'main', description: 'Specify git branch')
         string(name: 'url', defaultValue: 'https://github.com/hhk14/jenkins-maven-web-app.git', description: 'Specify git repo url')
+        string(name: 'reponame', defaultValue: 'hhk14', description: 'Specify docker repo name')
+        string(name: 'imagename', defaultValue: 'my_java_app', description: 'Specify docker image name')
+        string(name: 'imagetag', defaultValue: 'v1.0', description: 'Specify docker image tag')
     }
 
     stages
@@ -78,6 +81,14 @@ pipeline
                     mvnBuild()
                 }
             }
+        }
+        stage('DockerImage: Build'){
+            steps{
+                script{
+                    dockerImageBuild(${params.reponame},${params.imagename}, ${params.imagetag})
+                }
+            }
+            
         }
 
     }
