@@ -54,9 +54,9 @@ pipeline
 
         stage('StaticCodeAnanalysis: SonarQube'){
             steps{
-                def sonartoken=credentials('sonar-jenkins')
+                
                 script{
-                    
+                    def sonartoken='sonar-jenkins'
                     staticCodeCheck(sonartoken)
                 }
             }
