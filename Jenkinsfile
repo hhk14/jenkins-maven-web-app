@@ -106,7 +106,8 @@ pipeline
 
         stage('ImageScan: Trivy'){
             steps{
-                sh ' ./trivy-scan.sh '
+                
+                sh ' trivy-scan.sh '
             }
         }
 
