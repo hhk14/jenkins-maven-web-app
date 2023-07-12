@@ -45,6 +45,13 @@ pipeline
             }
                 
         }
+        stage('MVN: PI Test'){
+            steps{
+                script{
+                    piTest()
+                }
+            }
+        }
 
         stage('MVN: IntegrationTest'){
             steps{
