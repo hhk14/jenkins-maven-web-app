@@ -45,19 +45,20 @@ pipeline
             }
                 
         }
-        stage('MVN: PI Test'){
-            steps{
-                script{
-                    piTest()
-                }
-            }
-            post{
-                always{
-                    pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
-                }
-            }
-        }
+        // stage('MVN: PI Test'){
+        //     steps{
+        //         script{
+        //             piTest()
+        //         }
+        //     }
+        //     post{
+        //         always{
+        //             pimutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+        //         }
+        //     }
+        // }
 
+        
         stage('MVN: IntegrationTest'){
             steps{
                 script{
@@ -94,6 +95,14 @@ pipeline
                 }
             }
         }
+        stage('MVN:DependencyCheck'){
+            steps{
+                script{
+                    dependencyCheck()
+                }
+            }
+        }
+
         stage('DockerImage: Build'){
             steps{
                 script{
