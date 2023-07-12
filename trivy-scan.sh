@@ -5,8 +5,9 @@ trivy image -q --exit-code 1 --severity CRITICAL $dockerImage
 result="$?"
 if [ result -eq 0 ]
 then
-    echo "No vulnerabilities found!"
+    echo "Image Scan Passed. No vulnerabilities found!"
+    exit 1
 else
-    echo "vulnerabilities found! Need to be fixed!"
+    echo "Image Scan Failed!!.  Critical Vulnerabilities Found! Need to be fixed!"
 fi
 
