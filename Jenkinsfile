@@ -51,6 +51,11 @@ pipeline
                     piTest()
                 }
             }
+            post{
+                always{
+                    pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+                }
+            }
         }
 
         stage('MVN: IntegrationTest'){
