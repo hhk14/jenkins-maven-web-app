@@ -6,8 +6,9 @@ result="$?"
 if [ $result -eq 0 ]
 then
     echo "Image Scan Passed. No vulnerabilities found!"
-    exit 1
+    
 else
     echo "Image Scan Failed!!.  Critical Vulnerabilities Found! Need to be fixed!"
+    exit 1
 fi
 
