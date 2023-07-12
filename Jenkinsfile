@@ -104,6 +104,12 @@ pipeline
             }
         }
 
+        stage('ImageScan: Trivy'){
+            steps{
+                sh ' ./trivy-scan.sh '
+            }
+        }
+
         stage('DockerImage: Build'){
             steps{
                 script{
